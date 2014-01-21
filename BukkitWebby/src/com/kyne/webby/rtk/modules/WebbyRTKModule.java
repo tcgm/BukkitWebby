@@ -333,7 +333,7 @@ public class WebbyRTKModule extends Module implements RTKListener {
 			}
 		} catch(final IOException e) {
 			LogHelper.error("Unable to read the latest log file. Please check your /logs folder to see if latest.log exists.", e);
-		} finally {lo
+		} finally {
 			IOUtils.closeQuietly(randomFile);
 		}
 		return logLines;
