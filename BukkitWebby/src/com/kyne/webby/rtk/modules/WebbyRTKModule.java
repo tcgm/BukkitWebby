@@ -317,7 +317,7 @@ public class WebbyRTKModule extends Module implements RTKListener {
 	public List<String> readConsoleLog() {
 		final List<String> logLines = new ArrayList<String>();
 		String line = "";
-		final File logFile = new File("server.log");
+		final File logFile = new File("logs/latest.log");
 		RandomAccessFile randomFile = null;
 		try{
 			randomFile = new RandomAccessFile(logFile, "r");
@@ -332,8 +332,8 @@ public class WebbyRTKModule extends Module implements RTKListener {
 				logLines.add(line);
 			}
 		} catch(final IOException e) {
-			LogHelper.error("Unable to read server.log", e);
-		} finally {
+			LogHelper.error("Unable to read the latest log file. Please check your /logs folder to see if latest.log exists.", e);
+		} finally {lo
 			IOUtils.closeQuietly(randomFile);
 		}
 		return logLines;
